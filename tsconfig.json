@@ -24,20 +24,11 @@
       "dom"
     ],
     "paths": {
-      "@services/*": [
-        "src/app/services/*"
+      "@core/*": [
+        "src/app/core/*"
       ],
-      "@guards/*": [
-        "src/app/guards/*"
-      ],
-      "@models/*": [
-        "src/app/models/*"
-      ],
-      "@modules/*": [
-        "src/app/modules/*"
-      ],
-      "@utils/*": [
-        "src/app/utils/*"
+      "@shared/*": [
+        "src/app/shared/*"
       ],
       "@env/*": [
         "src/environments/*"

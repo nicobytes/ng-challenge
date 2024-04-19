@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, mergeMap, Observable, of, throwError } from 'rxjs';
-import { SearchResponse, News, GetResponse } from '@models/news.model';
+import { SearchResponse, News, GetResponse } from 'src/app/core/models/news.model';
 import { environment } from '@env/environment';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NewsService {
 
   private url = environment.API_URL;
-
-  constructor(private httpClient: HttpClient) { }
+  private httpClient = inject(HttpClient);
 
   public getNews(publishYear?: number): Observable<News[]> {
 

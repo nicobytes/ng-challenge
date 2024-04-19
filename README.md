@@ -17,6 +17,7 @@
 - [ ] Use query params
 - [ ] Seo friendly titles
 - [ ] Engine to render content
+- [ ] Use inject function
 
 
 
