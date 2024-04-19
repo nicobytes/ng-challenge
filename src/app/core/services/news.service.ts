@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {map, Observable} from 'rxjs';
-import { News } from '../../types';
+import { map, mergeMap, Observable, of, throwError } from 'rxjs';
+import { SearchResponse, News, GetResponse } from '@models/news.model';
+import { environment } from '@env/environment';
 
 
 @Injectable()
 export class NewsService {
+
+  private url = environment.API_URL;
+
   constructor(private httpClient: HttpClient) { }
 
   public getNews(publishYear?: number): Observable<News[]> {
-    const baseQuery = '+contentType:Blog '
+
+    const baseQuery = '+contentType:Blog ';
     const finalQuery = publishYear ? baseQuery + `+Blog.postingDate:[${publishYear}-01-01 TO ${publishYear}-12-31]` : baseQuery;
-    return this.httpClient.post< {
-    entity: {
-      jsonObjectView: {
-        contentlets: News[]
-      }
-    }
-  }>(`https://demo.dotcms.com/api/content/_search`, {
+    const path = `${this.url}/content/_search`;
+    return this.httpClient.post<SearchResponse>(path, {
       query: finalQuery
     })
       .pipe(
@@ -25,36 +25,18 @@ export class NewsService {
       );
   }
 
-  public getArticle(identifier: string): Observable<News | undefined> {
-    return this.getNews()
-      .pipe(
-        map(news => news.find(article => article.identifier === identifier)),
-        map(article => {
-          return {
-            ...article,
-            paragraphs: this.getValuesByKey(article, 'text')
-          } as News
-        })
-      );
-  }
-
-  private getValuesByKey(obj: any, key: string): string[] {
-    let values = [];
-
-
-    if (obj?.hasOwnProperty(key)) {
-      values.push(obj[key]);
-    }
-
-
-    for (let prop in obj) {
-      if (typeof obj[prop] === 'object') {
-
-        values = values.concat(this.getValuesByKey(obj[prop], key));
-      }
-    }
-
-    return values;
+  public getArticle(identifier: string): Observable<News> {
+    const path = `${this.url}/content/id/${identifier}`;
+    return this.httpClient.get<GetResponse>(path)
+    .pipe(
+      mergeMap(response => {
+        const { contentlets } = response;
+        if (contentlets.length > 0) {
+          return of(contentlets[0]);
+        }
+        return throwError(() => new Error(`Not found`));
+      })
+    );
   }
 
 }

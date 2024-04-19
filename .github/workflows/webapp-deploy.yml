@@ -17,6 +17,8 @@ jobs:
           node-version: 20.x
       - name: Install Dependencies
         run: npm ci
+      - name: Linter
+        run: npm run lint
       - name: Build
         run: npm run build
       - name: Deploy Page
