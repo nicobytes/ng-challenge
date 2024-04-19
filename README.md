@@ -18,8 +18,14 @@
 - [ ] Seo friendly titles
 - [ ] Engine to render content
 - [ ] Use inject function
-
-
+- [ ] Application builder
+- [ ] Separate header component
+- [ ] Year selector as FormControl
+- [ ] Use prettier
+- [ ] Load the years based in the current year
+- [ ] Use withComponentInputBinding
+- [ ] Create truncate pipe
+- [ ] Use custom loading NgSrc
 
 ## Create the project using Cloudflare Pages
 

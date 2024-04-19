@@ -1,1 +1,11 @@
-<p>header works!</p>
+<header>
+  <div class="name">DotCMS News Listing</div>
+  <button (click)="toggleMobileShow()" class="expand-button">
+    Toggle News
+  </button>
+  <select [formControl]="yearControl">
+    @for (option of selectOptions(); track option) {
+      <option>{{ option }}</option>
+    }
+  </select>
+</header>

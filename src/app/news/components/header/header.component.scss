@@ -1,0 +1,19 @@
+header {
+  border: 1px solid black;
+
+  select {
+    float: right;
+    margin: 16px;
+  }
+
+  .name {
+    margin: 16px;
+    display: inline-block;
+  }
+}
+
+@media (min-width: 640px) {
+  .expand-button {
+    display: none;
+  }
+}

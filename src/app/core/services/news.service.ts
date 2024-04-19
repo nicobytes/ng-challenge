@@ -1,34 +1,37 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, mergeMap, Observable, of, throwError } from 'rxjs';
-import { SearchResponse, News, GetResponse } from 'src/app/core/models/news.model';
+import {
+  SearchResponse,
+  News,
+  GetResponse,
+} from 'src/app/core/models/news.model';
 import { environment } from '@env/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsService {
-
   private url = environment.API_URL;
   private httpClient = inject(HttpClient);
 
-  public getNews(publishYear?: number): Observable<News[]> {
-
+  public getNews(publishYear?: string): Observable<News[]> {
     const baseQuery = '+contentType:Blog ';
-    const finalQuery = publishYear ? baseQuery + `+Blog.postingDate:[${publishYear}-01-01 TO ${publishYear}-12-31]` : baseQuery;
+    const finalQuery = publishYear
+      ? baseQuery +
+        `+Blog.postingDate:[${publishYear}-01-01 TO ${publishYear}-12-31]`
+      : baseQuery;
     const path = `${this.url}/content/_search`;
-    return this.httpClient.post<SearchResponse>(path, {
-      query: finalQuery
-    })
-      .pipe(
-        map(response => response.entity.jsonObjectView.contentlets)
-      );
+    return this.httpClient
+      .post<SearchResponse>(path, {
+        query: finalQuery,
+      })
+      .pipe(map(response => response.entity.jsonObjectView.contentlets));
   }
 
   public getArticle(identifier: string): Observable<News> {
     const path = `${this.url}/content/id/${identifier}`;
-    return this.httpClient.get<GetResponse>(path)
-    .pipe(
+    return this.httpClient.get<GetResponse>(path).pipe(
       mergeMap(response => {
         const { contentlets } = response;
         if (contentlets.length > 0) {
@@ -38,5 +41,4 @@ export class NewsService {
       })
     );
   }
-
 }

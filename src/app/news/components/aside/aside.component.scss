@@ -1,0 +1,16 @@
+aside {
+  width: 100%;
+  border: solid black 1px;
+  border-top: 0;
+  display: none;
+  &.shown-on-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 640px) {
+  aside {
+    display: block;
+    width: 200px;
+  }
+}

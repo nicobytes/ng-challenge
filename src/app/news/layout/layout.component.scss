@@ -1,0 +1,16 @@
+:host {
+  height: 100%;
+}
+
+.side-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .side-layout {
+    flex-direction: row;
+    height: 100%;
+  }
+}
