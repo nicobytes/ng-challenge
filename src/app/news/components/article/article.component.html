@@ -1,63 +1,37 @@
-@for (item of content().content; track $index) {
-  @switch (item.type) {
-    @case ('paragraph') {
-      @for (content of item.content; track $index) {
-        <p>{{ content.text }}</p>
+<div class="article-content">
+  @for (item of content().content; track $index) {
+    @switch (item.type) {
+      @case ('paragraph') {
+        <dot-paragraph [data]="item" />
       }
-    }
-    @case ('heading') {
-      @switch (item.attrs.level) {
-        @case (1) {
-          @for (content of item.content; track $index) {
-            <h1>{{ content.text }}</h1>
-          }
-        }
-        @case (2) {
-          @for (content of item.content; track $index) {
-            <h2>{{ content.text }}</h2>
-          }
-        }
-        @case (3) {
-          @for (content of item.content; track $index) {
-            <h3>{{ content.text }}</h3>
-          }
-        }
+      @case ('heading') {
+        <dot-heading [data]="item" />
       }
-    }
-    @case ('dotImage') {
-      @if (item.attrs.src) {
+      @case ('dotImage') {
+        <dot-image [data]="item" />
+      }
+      @case ('dotContent') {
         <img
           width="200"
           height="200"
-          [ngSrc]="item.attrs.src"
-          [alt]="item.attrs.title" />
-      } @else {
-        <img
-          width="200"
-          height="200"
-          [ngSrc]="item.attrs.data.asset"
-          [alt]="item.attrs.data.titleImage" />
+          [ngSrc]="item.attrs.data.imageVersion"
+          [alt]="item.attrs.data.title" />
       }
-    }
-    @case ('dotContent') {
-      <img
-        width="200"
-        height="200"
-        [ngSrc]="item.attrs.data.imageVersion"
-        [alt]="item.attrs.data.title" />
-    }
-    @case ('bulletList') {
-      @for (content of item.content; track $index) {
-        @if (content.type === 'listItem') {
-          <ul>
-            @for (item of content.content; track $index) {
-              @for (text of item.content; track $index) {
-                <li>{{ text.text }}</li>
-              }
+      @case ('bulletList') {
+        <ul>
+          @for (content of item.content; track $index) {
+            @if (content.type === 'listItem') {
+              <li>
+                @for (item of content.content; track $index) {
+                  @for (text of item.content; track $index) {
+                    {{ text.text }}
+                  }
+                }
+              </li>
             }
-          </ul>
-        }
+          }
+        </ul>
       }
     }
   }
-}
+</div>

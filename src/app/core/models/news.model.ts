@@ -16,6 +16,7 @@ export interface News {
   identifier: string;
   image: string;
   urlTitle: string;
+  publishDate: string;
   blogContent: {
     type: 'doc';
     content: ContentTypes[];
@@ -82,4 +83,8 @@ export interface Paragraph {
 export interface Text {
   type: 'text';
   text: string;
+  marks: Array<{
+    type: 'underline' | 'bold';
+  }>;
+  classes?: string[];
 }

@@ -7,7 +7,11 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: ':identifier',
+        path: '',
+        loadComponent: () => import('@news/pages/home/home.component'),
+      },
+      {
+        path: ':url',
         loadComponent: () => import('@news/pages/home/home.component'),
       },
     ],

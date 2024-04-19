@@ -1,10 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
+html {
+  line-height: 1.15; /* 1. Correct the line height in all browsers. */
+  -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+  -moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+  tab-size: 4; /* 3 */
   height: 100%;
 }
 body {
+  height: 100%;
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+li,
+p {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+:root {
+  --color-primary: 255 115 179;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+}
+
+.text-xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.content {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.article-content {
+  width: 100%;
+  position: relative;
+  p:first-of-type {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+  p {
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  .image {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    display: block;
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    img {
+      object-fit: cover;
+    }
+  }
+  ul {
+    padding: var(--spacing-2);
+    column-count: 2;
+    column-gap: var(--spacing-4);
+    li {
+      margin-left: var(--spacing-1);
+      margin-bottom: var(--spacing-4);
+    }
+  }
 }

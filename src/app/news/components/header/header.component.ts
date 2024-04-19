@@ -30,7 +30,7 @@ export class HeaderComponent {
 
   getLastestYears() {
     const year = new Date().getFullYear();
-    const years = [year];
+    const years = [];
     for (let i = 1; i <= 5; i++) {
       years.push(year - i);
     }

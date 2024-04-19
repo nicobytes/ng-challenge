@@ -35,10 +35,35 @@ export class NewsService {
       mergeMap(response => {
         const { contentlets } = response;
         if (contentlets.length > 0) {
-          return of(contentlets[0]);
+          return of(this.formatNew(contentlets[0]));
         }
         return throwError(() => new Error(`Not found`));
       })
     );
+  }
+
+  private formatNew(content: News): News {
+    return {
+      ...content,
+      blogContent: {
+        ...content.blogContent,
+        content: content.blogContent.content.map(item => {
+          if (item.type === 'paragraph') {
+            return {
+              ...item,
+              content: item.content
+                ? item.content.map(text => ({
+                    ...text,
+                    classes: text.marks
+                      ? text.marks.map(mark => mark.type)
+                      : [],
+                  }))
+                : [],
+            };
+          }
+          return item;
+        }),
+      },
+    };
   }
 }

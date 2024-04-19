@@ -1,8 +1,37 @@
 aside {
   width: 100%;
-  border: solid black 1px;
   border-top: 0;
   display: none;
+
+  .article {
+    padding: var(--spacing-4);
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+    &.active {
+      background-color: rgb(229 231 235);
+    }
+    &__image {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      position: relative;
+      flex: none;
+      img {
+        object-fit: cover;
+      }
+    }
+    &__title {
+      margin: 0;
+      font-weight: bold;
+    }
+    &__time {
+      margin: 0;
+      margin-top: var(--spacing-1);
+    }
+  }
   &.shown-on-mobile {
     display: block;
   }
@@ -11,6 +40,7 @@ aside {
 @media (min-width: 640px) {
   aside {
     display: block;
-    width: 200px;
+    width: 100%;
+    flex: none;
   }
 }

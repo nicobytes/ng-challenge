@@ -25,6 +25,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@env/*": ["src/environments/*"],
       "@news/*": ["src/app/news/*"],
+      "@store/*": ["src/app/store/*"],
     }
   },
   "angularCompilerOptions": {

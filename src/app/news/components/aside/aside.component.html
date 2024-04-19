@@ -1,12 +1,18 @@
 <aside [class.shown-on-mobile]="showNewsOnMobile()">
   @for (article of articles(); track article.identifier) {
-    <a class="article" [routerLink]="['/', article.identifier]">
+    <a
+      class="article"
+      routerLinkActive="active"
+      [routerLink]="['/', article.urlTitle]">
       @if (article.image) {
-        <div>
-          <img width="50" height="33" [ngSrc]="article.image" placeholder />
-        </div>
+        <picture class="article__image">
+          <img fill [ngSrc]="article.image" placeholder />
+        </picture>
       }
-      {{ article.title | truncate: 50 }}
+      <div>
+        <p class="article__title">{{ article.title | truncate: 50 }}</p>
+        <p class="article__time">{{ article.publishDate | timeAgo }}</p>
+      </div>
     </a>
   }
 </aside>

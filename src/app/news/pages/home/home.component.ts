@@ -1,10 +1,11 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { AsideComponent } from '@news/components/aside/aside.component';
 import { ArticleComponent } from '@news/components/article/article.component';
-import { NewsService } from '@core/services/news.service';
-import { News } from '@core/models/news.model';
+import { TimeAgoPipe } from '@news/pipes/time-ago.pipe';
+import { selectArticle } from '@store/selectors/news.selectors';
 import { NgOptimizedImage } from '@angular/common';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'dot-home',
@@ -14,28 +15,12 @@ import { NgOptimizedImage } from '@angular/common';
     AsideComponent,
     NgOptimizedImage,
     ArticleComponent,
+    TimeAgoPipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export default class HomeComponent {
-  private newsService = inject(NewsService);
-
-  identifier = input<string>();
-  article = signal<News | null>(null);
-
-  constructor() {
-    effect(() => {
-      const identifier = this.identifier();
-      if (identifier) {
-        this.getArticle(identifier);
-      }
-    });
-  }
-
-  getArticle(identifier: string) {
-    this.newsService.getArticle(identifier).subscribe(content => {
-      this.article.set(content);
-    });
-  }
+  private store = inject(Store);
+  public article = this.store.selectSignal(selectArticle);
 }

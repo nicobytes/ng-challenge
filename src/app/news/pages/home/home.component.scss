@@ -1,22 +1,31 @@
-:host {
-  height: 100%;
-}
-
-.side-layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.cover {
+.header {
   width: 100%;
-  height: 200px;
   position: relative;
-}
-
-@media (min-width: 640px) {
-  .side-layout {
-    flex-direction: row;
-    height: 100%;
+  &__cover {
+    width: 100%;
+    height: 350px;
+    display: block;
+    position: relative;
+    img {
+      object-fit: cover;
+    }
   }
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-4);
+    background: rgba($color: #000000, $alpha: 0.7);
+    color: white;
+    .header__text {
+      margin: 0;
+    }
+    .header__time {
+      margin-top: var(--spacing-1);
+    }
+  }
+}
+.article {
+  padding: var(--spacing-4);
 }
