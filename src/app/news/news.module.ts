@@ -7,16 +7,13 @@ import { CoreModule } from '../core/core.module';
 import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-
-  declarations: [
-    PageComponent,
-    HeaderComponent,
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule,
-    CoreModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterModule,
+        CoreModule,
+        PageComponent,
+        HeaderComponent
+    ]
 })
 export class NewsModule { }

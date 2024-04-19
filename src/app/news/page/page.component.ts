@@ -1,13 +1,16 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {NewsService} from '../../core/services/news.service';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {Observable, switchMap, tap} from 'rxjs';
 import {News} from '../../types';
+import { NgFor, NgClass, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'dot-layout',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss']
+    selector: 'dot-layout',
+    templateUrl: './page.component.html',
+    styleUrls: ['./page.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgFor, NgClass, NgIf]
 })
 export class PageComponent implements AfterViewInit {
 
