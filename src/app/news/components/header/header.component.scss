@@ -22,6 +22,9 @@ header {
       color: inherit;
       font-weight: bold;
     }
+    &__icon {
+      display: none;
+    }
   }
   .actions {
     display: flex;
@@ -47,6 +50,11 @@ header {
   .header {
     padding-left: 0;
     padding-right: 0;
+    .name {
+      &__icon {
+        display: block;
+      }
+    }
   }
   .expand-button {
     display: none;
