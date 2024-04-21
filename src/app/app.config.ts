@@ -12,6 +12,7 @@ import { NewsEffects } from '@store/effects/news.effect';
 import { reducers } from '@store/reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideRouterStore } from '@ngrx/router-store';
+import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,5 +33,6 @@ export const appConfig: ApplicationConfig = {
     provideEffects([NewsEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideRouterStore(),
+    provideClientHydration(),
   ],
 };
