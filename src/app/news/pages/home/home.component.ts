@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { AsideComponent } from '@news/components/aside/aside.component';
 import { ArticleComponent } from '@news/components/article/article.component';
@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { NewsActions } from '@store/actions/news.actions';
+import { MetaService } from '@core/services/meta.service';
 
 @Component({
   selector: 'dot-home',
@@ -25,6 +26,7 @@ import { NewsActions } from '@store/actions/news.actions';
 })
 export default class HomeComponent {
   private store = inject(Store);
+  private metaTagsService = inject(MetaService);
   public article = this.store.selectSignal(selectArticle);
 
   private activatedRoute = inject(ActivatedRoute);
@@ -35,5 +37,13 @@ export default class HomeComponent {
       .subscribe(url => {
         this.store.dispatch(NewsActions.selectArticle({ articleId: url }));
       });
+    effect(() => {
+      const article = this.article();
+      this.metaTagsService.updateMetadata({
+        title: article?.title,
+        image: article?.image,
+        description: article?.teaser,
+      });
+    });
   }
 }
