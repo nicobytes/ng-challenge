@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   dot-aside {
-    width: 200px;
+    width: 100%;
+  }
+  .main {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -10,6 +14,7 @@
   .side-layout {
     flex-direction: row;
     height: 100%;
+    gap: var(--spacing-4);
     dot-aside {
       width: 30%;
       flex: none;

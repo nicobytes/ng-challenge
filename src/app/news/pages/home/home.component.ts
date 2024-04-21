@@ -6,6 +6,9 @@ import { TimeAgoPipe } from '@news/pipes/time-ago.pipe';
 import { selectArticle } from '@store/selectors/news.selectors';
 import { NgOptimizedImage } from '@angular/common';
 import { Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { NewsActions } from '@store/actions/news.actions';
 
 @Component({
   selector: 'dot-home',
@@ -23,4 +26,14 @@ import { Store } from '@ngrx/store';
 export default class HomeComponent {
   private store = inject(Store);
   public article = this.store.selectSignal(selectArticle);
+
+  private activatedRoute = inject(ActivatedRoute);
+
+  constructor() {
+    this.activatedRoute.paramMap
+      .pipe(map(params => params.get('url')))
+      .subscribe(url => {
+        this.store.dispatch(NewsActions.selectArticle({ articleId: url }));
+      });
+  }
 }

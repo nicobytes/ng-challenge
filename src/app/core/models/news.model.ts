@@ -59,6 +59,8 @@ export interface DotContent {
     data: {
       imageVersion: string;
       title: string;
+      description: string;
+      retailPrice: string;
     };
   };
 }

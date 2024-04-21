@@ -1,13 +1,20 @@
 <header>
   <div class="content">
-    <div class="name">DotCMS News Listing</div>
-    <button (click)="toggleMobileShow()" class="expand-button">
-      Toggle News
-    </button>
-    <select [formControl]="yearControl">
-      @for (option of selectOptions(); track option) {
-        <option>{{ option }}</option>
-      }
-    </select>
+    <div class="header">
+      <div class="name">
+        <span class="material-symbols-outlined"> newsmode </span>
+        <a class="name__title text-lg" href="/">DotCMS News</a>
+      </div>
+      <div class="actions">
+        <select [formControl]="yearControl">
+          @for (option of selectOptions(); track option) {
+            <option>{{ option }}</option>
+          }
+        </select>
+        <button (click)="toggleMobileShow()" class="expand-button">
+          <span class="material-symbols-outlined"> menu </span>
+        </button>
+      </div>
+    </div>
   </div>
 </header>

@@ -9,7 +9,7 @@ export const initialState: NewsState = NewsAdapter.getInitialState({
 export const NewsReducer = createReducer(
   initialState,
   on(NewsActions.loadArticles, (state, { news }) => {
-    return NewsAdapter.addMany(news, { ...state });
+    return NewsAdapter.setAll(news, { ...state });
   }),
   on(NewsActions.selectArticle, (state, { articleId }): NewsState => {
     return {

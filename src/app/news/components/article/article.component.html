@@ -8,14 +8,10 @@
         <dot-heading [data]="item" />
       }
       @case ('dotImage') {
-        <dot-image [data]="item" />
+        <dot-image  [data]="item" />
       }
       @case ('dotContent') {
-        <img
-          width="200"
-          height="200"
-          [ngSrc]="item.attrs.data.imageVersion"
-          [alt]="item.attrs.data.title" />
+        <dot-content [data]="item" />
       }
       @case ('bulletList') {
         <ul>

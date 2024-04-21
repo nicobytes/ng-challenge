@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UiService } from '@core/services/ui.service';
 
@@ -8,7 +8,7 @@ import { UiService } from '@core/services/ui.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
 })
 export class HeaderComponent {
   private uiService = inject(UiService);
@@ -18,9 +18,7 @@ export class HeaderComponent {
 
   constructor() {
     this.yearControl.valueChanges.subscribe(year => {
-      this.router.navigate([], {
-        queryParams: { year },
-      });
+      this.router.navigate(['/'], { queryParams: { year } });
     });
   }
 

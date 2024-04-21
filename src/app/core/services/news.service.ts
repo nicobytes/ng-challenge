@@ -26,7 +26,13 @@ export class NewsService {
       .post<SearchResponse>(path, {
         query: finalQuery,
       })
-      .pipe(map(response => response.entity.jsonObjectView.contentlets));
+      .pipe(
+        map(response =>
+          response.entity.jsonObjectView.contentlets.map(item =>
+            this.formatNew(item)
+          )
+        )
+      );
   }
 
   public getArticle(identifier: string): Observable<News> {

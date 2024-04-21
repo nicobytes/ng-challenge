@@ -11,6 +11,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--background);
 }
 
 *,
@@ -35,7 +36,9 @@ strong {
 }
 
 :root {
-  --color-primary: 255 115 179;
+  --background: #fbfbff;
+  --color-primary: #b7e4c7;
+  --radius: 0.25rem;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;
@@ -45,6 +48,10 @@ strong {
 .text-xs {
   font-size: 0.75rem; /* 12px */
   line-height: 1rem; /* 16px */
+  * {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+  }
 }
 
 .text-lg {
@@ -61,7 +68,8 @@ strong {
 .article-content {
   width: 100%;
   position: relative;
-  p:first-of-type {
+  padding-bottom: var(--spacing-4);
+  > p:first-of-type {
     font-size: 1.25rem; /* 20px */
     line-height: 1.75rem; /* 28px */
   }
@@ -95,4 +103,61 @@ strong {
       margin-bottom: var(--spacing-4);
     }
   }
+  .dot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-4);
+    border: 1px solid gray;
+    padding: var(--spacing-2);
+    margin-top: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    border-radius: var(--radius);
+    .image {
+      display: block;
+      width: 10rem;
+      height: 10rem;
+      position: relative;
+      flex: none;
+      border-radius: var(--radius);
+      img {
+        object-fit: cover;
+        border-radius: var(--radius);
+      }
+    }
+    .btn {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
 }
+
+@media (min-width: 640px) {
+  .article-content {
+    .dot-content {
+      flex-direction: row;
+      align-items: start;
+      .btn {
+        width: 100%;
+        display: inline;
+        text-align: left;
+      }
+    }
+
+  }
+}
+
+.btn {
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  background-color: var(--color-primary);
+  color: black;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+

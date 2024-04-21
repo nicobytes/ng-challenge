@@ -1,9 +1,9 @@
-import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { createActionGroup, props } from '@ngrx/store';
 
 export const NewsUIActions = createActionGroup({
   source: 'News UI',
   events: {
-    'Load Articles': emptyProps(),
+    'Load Articles': props<{ year?: string }>(),
     'Error fetching': props<{ error: string }>(),
   },
 });
