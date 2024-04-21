@@ -1,6 +1,8 @@
 :host {
   display: block;
   width: 100%;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
 }
 
 .header {
@@ -58,4 +60,12 @@
       margin-bottom: var(--spacing-4);
     }
   }
+}
+
+@media (min-width: 640px) {
+  :host {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
 }

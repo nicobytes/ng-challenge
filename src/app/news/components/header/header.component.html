@@ -2,7 +2,9 @@
   <div class="content">
     <div class="header">
       <div class="name">
-        <span class="material-symbols-outlined"> newsmode </span>
+        <span class="material-symbols-outlined">
+          newsmode
+        </span>
         <a class="name__title text-lg" href="/">DotCMS News</a>
       </div>
       <div class="actions">
@@ -13,7 +15,13 @@
           }
         </select>
         <button (click)="toggleMobileShow()" class="expand-button">
-          <span class="material-symbols-outlined"> menu </span>
+          <span class="material-symbols-outlined">
+            @if(showNewsOnMobile()) {
+              expand_more
+            } @else {
+              expand_less
+            }
+          </span>
         </button>
       </div>
     </div>

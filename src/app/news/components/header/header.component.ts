@@ -13,12 +13,14 @@ import { UiService } from '@core/services/ui.service';
 export class HeaderComponent {
   private uiService = inject(UiService);
   private router = inject(Router);
+  public showNewsOnMobile = this.uiService.showNewsOnMobile;
   public selectOptions = signal(this.getLastestYears());
   public yearControl = new FormControl('', { nonNullable: true });
 
   constructor() {
     this.yearControl.valueChanges.subscribe(year => {
       this.router.navigate(['/'], { queryParams: { year } });
+      this.uiService.openMenu();
     });
   }
 

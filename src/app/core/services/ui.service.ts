@@ -9,4 +9,8 @@ export class UiService {
   public toggleMobileShow() {
     this.showNewsOnMobile.update(prevState => !prevState);
   }
+
+  openMenu() {
+    this.showNewsOnMobile.set(true);
+  }
 }
