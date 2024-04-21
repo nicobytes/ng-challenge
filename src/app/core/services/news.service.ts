@@ -24,7 +24,7 @@ export class NewsService {
     const path = `${this.url}/content/_search`;
     return this.httpClient
       .post<SearchResponse>(path, {
-        query: finalQuery,
+        query: `${finalQuery}`,
       })
       .pipe(
         map(response =>
