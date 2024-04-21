@@ -50,7 +50,15 @@ export class MetaService {
 
       {
         property: 'og:image',
-        content: `${environment.CDN_IMAGES}${metadata.image}/800w/10q`,
+        content: `${environment.CDN_IMAGES}${metadata.image}/1200w/630h/10q`,
+      },
+      {
+        property: 'og:image:width',
+        content: '1200',
+      },
+      {
+        property: 'og:image:width',
+        content: '630',
       },
     ];
   }
