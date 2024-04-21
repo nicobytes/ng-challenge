@@ -274,11 +274,27 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/platform-server@^17.3.5":
+  version "17.3.5"
+  resolved "https://registry.npmjs.org/@angular/platform-server/-/platform-server-17.3.5.tgz"
+  integrity sha512-cQRM+sj4NJZi6udXuoFowWIFLlHwUzNfS3WITbYw4iAI1qRgkVZctbA2aKU6lZg43lEDmts9TOqFB1smUXsdVA==
+  dependencies:
+    tslib "^2.3.0"
+    xhr2 "^0.2.0"
+
 "@angular/router@^17.3.5":
   version "17.3.5"
   resolved "https://registry.npmjs.org/@angular/router/-/router-17.3.5.tgz"
   integrity sha512-KsIIs3t9IpxsdMSrJDZzO5WgIWkVE6Ep5WWiSyPIgEfA+ndGpJLmyv0d/r1yKKlYUJxz7Hde55o4thgT2n2x/A==
   dependencies:
+    tslib "^2.3.0"
+
+"@angular/ssr@^17.3.5":
+  version "17.3.5"
+  resolved "https://registry.npmjs.org/@angular/ssr/-/ssr-17.3.5.tgz"
+  integrity sha512-MBKrIq3w6inFGVjZoCsXRiTYomell6DSLbUUQfvphTN1ExUzbcFvxWoM1p69KmIWqxWlUAECl3sV/cesSeNGRg==
+  dependencies:
+    critters "0.0.22"
     tslib "^2.3.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.23.5", "@babel/code-frame@^7.24.1":
@@ -1843,7 +1859,7 @@
     "@types/range-parser" "*"
     "@types/send" "*"
 
-"@types/express@*", "@types/express@^4.17.13":
+"@types/express@*", "@types/express@^4.17.13", "@types/express@^4.17.17":
   version "4.17.21"
   resolved "https://registry.npmjs.org/@types/express/-/express-4.17.21.tgz"
   integrity sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==
@@ -1892,10 +1908,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@>=10.0.0":
-  version "20.12.7"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.12.7.tgz"
-  integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
+"@types/node@*", "@types/node@^18.18.0", "@types/node@>=10.0.0":
+  version "18.19.31"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.19.31.tgz"
+  integrity sha512-ArgCD39YpyyrtFKIqMDvjz79jto5fcI/SVUs2HwB+f0dAzq68yqOdyaSivLiLugSziTpNXLQrVb7RZFmdZzbhA==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3882,7 +3898,7 @@ exponential-backoff@^3.1.1:
   resolved "https://registry.npmjs.org/exponential-backoff/-/exponential-backoff-3.1.1.tgz"
   integrity sha512-dX7e/LHVJ6W3DE1MHWi9S1EYzDESENfLrYohG2G++ovZrYOkm4Knwa0mc1cn84xJOR4KEU0WSchhLbd0UklbHw==
 
-express@^4.17.3:
+express@^4.17.3, express@^4.18.2:
   version "4.19.2"
   resolved "https://registry.npmjs.org/express/-/express-4.19.2.tgz"
   integrity sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q==
@@ -7804,6 +7820,11 @@ ws@^8.13.0:
   version "8.16.0"
   resolved "https://registry.npmjs.org/ws/-/ws-8.16.0.tgz"
   integrity sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==
+
+xhr2@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/xhr2/-/xhr2-0.2.1.tgz"
+  integrity sha512-sID0rrVCqkVNUn8t6xuv9+6FViXjUVXq8H5rWOH2rz9fDNQEd4g0EA2XlcEdJXRz5BMEn4O1pJFdT+z4YHhoWw==
 
 xxhash-wasm@^1.0.1:
   version "1.0.2"
