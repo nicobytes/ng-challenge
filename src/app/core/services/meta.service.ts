@@ -57,7 +57,7 @@ export class MetaService {
         content: '1200',
       },
       {
-        property: 'og:image:width',
+        property: 'og:image:height',
         content: '630',
       },
     ];
