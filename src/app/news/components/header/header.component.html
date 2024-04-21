@@ -6,7 +6,8 @@
         <a class="name__title text-lg" href="/">DotCMS News</a>
       </div>
       <div class="actions">
-        <select [formControl]="yearControl">
+        <select aria-label="Year" [formControl]="yearControl">
+          <option value="">Select year</option>
           @for (option of selectOptions(); track option) {
             <option>{{ option }}</option>
           }

@@ -7,7 +7,7 @@
       (click)="toggleMobileShow()">
       @if (article.image) {
         <picture class="article__image">
-          <img fill [ngSrc]="article.image" placeholder />
+          <img fill [ngSrc]="article.image" placeholder [alt]="article.title" />
         </picture>
       }
       <div>
