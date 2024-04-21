@@ -1,0 +1,47 @@
+<aside [class.shown-on-mobile]="showNewsOnMobile()">
+  @for (article of articles(); track article.identifier) {
+    <a
+      class="article"
+      [class.active]="selectArticleId() === article.urlTitle"
+      [routerLink]="['/', article.urlTitle]"
+      (click)="toggleMobileShow()">
+      @if (article.image) {
+        <picture class="article__image">
+          <img fill [ngSrc]="article.image" placeholder priority />
+        </picture>
+      }
+      <div>
+        <p class="article__title">{{ article.title | truncate: 30 }}</p>
+        <p class="article__time">{{ article.publishDate | timeAgo }}</p>
+      </div>
+    </a>
+  } @empty {
+    <div class="article skeleton">
+      <picture class="article__image">
+        <div class="skeleton__img"></div>
+      </picture>
+      <div>
+        <p class="article__title"></p>
+        <p class="article__time"></p>
+      </div>
+    </div>
+    <div class="article skeleton">
+      <picture class="article__image">
+        <div class="skeleton__img"></div>
+      </picture>
+      <div>
+        <p class="article__title"></p>
+        <p class="article__time"></p>
+      </div>
+    </div>
+    <div class="article skeleton">
+      <picture class="article__image">
+        <div class="skeleton__img"></div>
+      </picture>
+      <div>
+        <p class="article__title"></p>
+        <p class="article__time"></p>
+      </div>
+    </div>
+  }
+</aside>

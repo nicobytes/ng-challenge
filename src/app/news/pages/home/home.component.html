@@ -1,0 +1,33 @@
+@if (article(); as article) {
+  <div class="header">
+    <picture class="header__cover">
+      <img
+        fill
+        [ngSrc]="article.image"
+        [alt]="article.title"
+        placeholder
+        priority />
+    </picture>
+    <div class="header__title">
+      <h1 class="header__text">{{ article.title }}</h1>
+      <time class="header__time">{{ article.publishDate | timeAgo }}</time>
+    </div>
+  </div>
+
+  <div class="article">
+    <dot-article [content]="article.blogContent" />
+  </div>
+} @else {
+  <div class="skeleton">
+    <div class="header">
+      <picture class="header__cover">
+        <div></div>
+      </picture>
+    </div>
+    <div class="article">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+}

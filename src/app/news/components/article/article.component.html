@@ -1,0 +1,33 @@
+<div class="article-content">
+  @for (item of content().content; track $index) {
+    @switch (item.type) {
+      @case ('paragraph') {
+        <dot-paragraph [data]="item" />
+      }
+      @case ('heading') {
+        <dot-heading [data]="item" />
+      }
+      @case ('dotImage') {
+        <dot-image  [data]="item" />
+      }
+      @case ('dotContent') {
+        <dot-content [data]="item" />
+      }
+      @case ('bulletList') {
+        <ul>
+          @for (content of item.content; track $index) {
+            @if (content.type === 'listItem') {
+              <li>
+                @for (item of content.content; track $index) {
+                  @for (text of item.content; track $index) {
+                    {{ text.text }}
+                  }
+                }
+              </li>
+            }
+          }
+        </ul>
+      }
+    }
+  }
+</div>

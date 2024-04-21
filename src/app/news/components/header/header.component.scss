@@ -1,0 +1,54 @@
+header {
+  position: relative;
+  z-index: 2;
+  background: var(--background);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+
+  .name {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+    &__title {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+  }
+  .actions {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: stretch;
+
+    select {
+      padding: var(--spacing-2);
+      border-radius: var(--radius);
+    }
+
+    button {
+      background: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: 0;
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .expand-button {
+    display: none;
+  }
+}
