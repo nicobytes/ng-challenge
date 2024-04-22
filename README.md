@@ -197,7 +197,7 @@ This element, the img tag, automatically creates the srcset attribute and render
 
 The app handles SEO URLs using redux state. The API doesn't have a way to fetch a new by `urlTitle`, but I can use global state by redux and the `@ngrx/entity` package to avoid sending an extra request to the API and search by `urlTitle` in the store. Therefore, the method `getArticle` was removed.
 
-![capture](/images/api.jpg)
+![capture](/images/api.png)
 
 ## Deployment
 
