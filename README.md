@@ -183,8 +183,8 @@ This element, the img tag, automatically creates the srcset attribute and render
 
 ### Code Quality
 
-- Redux pattern: Handle Ngrx to implement the Redux pattern in Angular. The components do not have much business logic; most components just have a subscription to the store and send actions to create behaviors.
-- Linter and Format: You include the Angular linter with `ESLint` in strict mode to ensure good practices and a Pretter as formatter. The linter process automatically checks for GitActions.
+- Redux pattern: Handle `@ngrx/store` to implement the Redux pattern in Angular. The components do not have much business logic; most components just have a subscription to the store and send actions to create behaviors.
+- Linter and Format: I include the Angular linter with `ESLint` in strict mode to ensure good practices and a `Prettier` as formatter. The linter process automatically checks for GitActions.
 - Environments files: I use the enviroments file to handle static variables like `API_URL`, `CDN_IMAGES`, and `HOST`.
 - New Angular syntax: Using the new syntax to improve performance
 - Migrating to standalone components to avoid boilerplate with modules.
