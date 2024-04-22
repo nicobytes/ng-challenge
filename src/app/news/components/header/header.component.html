@@ -2,10 +2,8 @@
   <div class="content">
     <div class="header">
       <div class="name">
-        <span class="material-symbols-outlined name__icon">
-          newsmode
-        </span>
-        <a class="name__title text-lg" href="/">DotCMS News</a>
+        <span class="material-symbols-outlined name__icon"> newsmode </span>
+        <a class="name__title text-lg" routerLink="/">DotCMS News</a>
       </div>
       <div class="actions">
         <select aria-label="Year" [formControl]="yearControl">
@@ -16,7 +14,7 @@
         </select>
         <button (click)="toggleMobileShow()" class="expand-button">
           <span class="material-symbols-outlined">
-            @if(showNewsOnMobile()) {
+            @if (showNewsOnMobile()) {
               expand_more
             } @else {
               expand_less

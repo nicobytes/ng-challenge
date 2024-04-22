@@ -6,9 +6,6 @@ import { TimeAgoPipe } from '@news/pipes/time-ago.pipe';
 import { selectArticle } from '@store/selectors/news.selectors';
 import { NgOptimizedImage } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { NewsActions } from '@store/actions/news.actions';
 import { MetaService } from '@core/services/meta.service';
 
 @Component({
@@ -29,14 +26,7 @@ export default class HomeComponent {
   private metaTagsService = inject(MetaService);
   public article = this.store.selectSignal(selectArticle);
 
-  private activatedRoute = inject(ActivatedRoute);
-
   constructor() {
-    this.activatedRoute.paramMap
-      .pipe(map(params => params.get('url')))
-      .subscribe(url => {
-        this.store.dispatch(NewsActions.selectArticle({ articleId: url }));
-      });
     effect(() => {
       const article = this.article();
       this.metaTagsService.updateMetadata({

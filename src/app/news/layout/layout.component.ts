@@ -18,7 +18,6 @@ export class LayoutComponent {
   private activatedRoute = inject(ActivatedRoute);
 
   constructor() {
-    this.store.dispatch(NewsUIActions.loadArticles({}));
     this.activatedRoute.queryParamMap
       .pipe(
         map(params => params.get('year') ?? undefined),

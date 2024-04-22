@@ -7,9 +7,9 @@ Reader App is a front-end app built with Angular with SSR and deployed in Cloudf
 # Table of Contents  
 - [Services](#services)  
 - [Quickstart](#quickstart)
-- [Folder structure](#folder-structure)
 - [Functionalities](#functionalities)
 - [Deployment](#Deployment)
+- [Folder structure](#folder-structure)
 
 ## Services
 
@@ -38,6 +38,38 @@ npm i
 ```
 npm run start
 ```
+
+
+## Functionalities
+
+### Dynamic Content Loading
+
+The application automatically fetches and displays the latest blog news sorted by publish date in descending order.
+
+![capture](/images/engine.jpg)
+
+### Error Handling
+
+### Default Selection and Navigation
+
+### Angular Routing
+
+### Advanced Styling with SASS/LESS
+
+### Content Filtering by Year
+
+### Unit Testing
+
+### Code Quality
+
+### Responsive Two-Column Layout
+
+## Deployment
+
+With Github actions to detect changes in the code and deploy the app to the cloud. As part of CI/CD, the project has a linter and build step before deploying the app. The project has automatic deployment to Cloudflare pages.
+
+![capture](/images/interview_ci.jpg)
+
 
 ## Folder structure
 
@@ -124,38 +156,6 @@ The frontend app is organized in the following folder structure:
 ├── robots.txt
 └── styles.scss
 ```
-
-## Functionalities
-
-### Dynamic Content Loading
-
-The application automatically fetches and displays the latest blog news sorted by publish date in descending order.
-
-![capture](/images/engine.jpg)
-
-### Error Handling
-
-### Default Selection and Navigation
-
-### Angular Routing
-
-### Advanced Styling with SASS/LESS
-
-### Content Filtering by Year
-
-### Unit Testing
-
-### Code Quality
-
-### Responsive Two-Column Layout
-
-## Deployment
-
-With Github actions to detect changes in the code and deploy the app to the cloud. As part of CI/CD, the project has a linter and build step before deploying the app. The project has automatic deployment to Cloudflare pages.
-
-![capture](/images/interview_ci.jpg)
-
-
 
 
 # NewsReader
