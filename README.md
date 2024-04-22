@@ -162,7 +162,7 @@ this.yearControl.valueChanges.subscribe(year => {
 
 ### Image Processing
 
-I use the new `ngSrc` by Angulr to do the image processing and render the appropriate image to the display device.
+I use the new `ngSrc` by Angular to do the image processing and render the appropriate image to the display device.
 
 ```ts
 {
@@ -177,21 +177,25 @@ I use the new `ngSrc` by Angulr to do the image processing and render the approp
 },
 ```
 
+This element, the img tag, automatically creates the srcset attribute and renders images with different resolutions.
+
+![capture](/images/image.jpg)
+
 ### Code Quality
 
 - Redux pattern: Handle Ngrx to implement the Redux pattern in Angular. The components do not have much business logic; most components just have a subscription to the store and send actions to create behaviors.
-- Linter and Format: You include the Angular linter with `ESLint` in strict mode to ensure good practices and a nicer format. The linter process automatically checks for GitActions.
+- Linter and Format: You include the Angular linter with `ESLint` in strict mode to ensure good practices and a Pretter as formatter. The linter process automatically checks for GitActions.
 - Environments files: I use the enviroments file to handle static variables like `API_URL`, `CDN_IMAGES`, and `HOST`.
 - New Angular syntax: Using the new syntax to improve performance
 - Migrating to standalone components to avoid boilerplate with modules.
 - Signals: Using a good reactive pattern with ngrx and signals.
 - Use short imports: Use short imports to avoid `../../../`.
 - Application Builder: Migrate to a new builder with esbuild and vite to improve build times and implement SSR.
-- Use the inject feature: Use the inject function to avoid DI in the constructor.
+- Use the `inject` function to avoid DI in the constructor.
 
 ### Seo friendly titles
 
-The app handles SEO URLs using redux state. The API doesn't have a way to fetch a new URL by `urlTitle`, but you can use global state by redux and the `@ngrx/entity` package to avoid sending an extra request to the API and search by ID in the store. Therefore, the method `getArticle` was removed.
+The app handles SEO URLs using redux state. The API doesn't have a way to fetch a new by `urlTitle`, but I can use global state by redux and the `@ngrx/entity` package to avoid sending an extra request to the API and search by `urlTitle` in the store. Therefore, the method `getArticle` was removed.
 
 ![capture](/images/api.jpg)
 
