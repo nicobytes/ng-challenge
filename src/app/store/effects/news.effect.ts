@@ -2,7 +2,6 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, switchMap } from 'rxjs/operators';
-import { NewsUIActions } from '@store/actions/news-ui.actions';
 import { NewsActions } from '@store/actions/news.actions';
 import { NewsService } from '@core/services/news.service';
 
@@ -13,13 +12,13 @@ export class NewsEffects {
 
   loadArticlesUI$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(NewsUIActions.loadArticles),
+      ofType(NewsActions.loadNewsFecth),
       exhaustMap(action =>
         this.newsService.getNews(action.year).pipe(
           map(news =>
-            NewsActions.loadArticles({ news, articleId: action.articleId })
+            NewsActions.loadNewsSuccess({ news, articleId: action.articleId })
           ),
-          catchError(error => of(NewsUIActions.errorFetching({ error })))
+          catchError(error => of(NewsActions.loadNewsFailed({ error })))
         )
       )
     );
@@ -27,7 +26,7 @@ export class NewsEffects {
 
   loadArticles$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(NewsActions.loadArticles),
+      ofType(NewsActions.loadNewsSuccess),
       switchMap(action => {
         let articleId = action.articleId ?? null;
         if (action.news.length > 0 && articleId === null) {

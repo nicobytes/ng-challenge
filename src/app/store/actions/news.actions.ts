@@ -4,7 +4,9 @@ import { News } from '@core/models/news.model';
 export const NewsActions = createActionGroup({
   source: 'News',
   events: {
-    'Load Articles': props<{ news: News[]; articleId?: string }>(),
-    'Select Article': props<{ articleId: string | null }>(),
+    loadNewsFecth: props<{ year?: string; articleId?: string }>(),
+    loadNewsSuccess: props<{ news: News[]; articleId?: string }>(),
+    loadNewsFailed: props<{ error: string }>(),
+    selectArticle: props<{ articleId: string | null }>(),
   },
 });

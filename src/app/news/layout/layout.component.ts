@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { NewsUIActions } from '@store/actions/news-ui.actions';
+import { NewsActions } from '@store/actions/news.actions';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { AsideComponent } from '@news/components/aside/aside.component';
@@ -24,7 +24,7 @@ export class LayoutComponent {
         filter(year => year !== undefined)
       )
       .subscribe(year => {
-        this.store.dispatch(NewsUIActions.loadArticles({ year }));
+        this.store.dispatch(NewsActions.loadNewsFecth({ year }));
       });
   }
 }

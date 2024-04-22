@@ -15,6 +15,11 @@ export const selectArticleId = createSelector(
   state => state.selectedArticleId
 );
 
+export const selectStateNewsFetching = createSelector(
+  selectNewsState,
+  state => state.stateNewsFetching.status
+);
+
 export const selectArticle = createSelector(
   selectArticleId,
   selectEntitiesArticles,
