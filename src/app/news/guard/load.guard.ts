@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectStateNewsFetching } from '@store/news.selectors';
+import { selectStateNewsFetching } from '@core/store/news.selectors';
 import { map, tap } from 'rxjs';
-import { NewsActions } from '@store/news.actions';
+import { NewsActions } from '@core/store/news.actions';
 
 export const loadGuard: CanActivateFn = route => {
   const store = inject(Store);

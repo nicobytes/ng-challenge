@@ -8,8 +8,8 @@ import { routes } from './app.routes';
 import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { NewsEffects } from '@store/news.effect';
-import { reducers } from '@store/index';
+import { NewsEffects } from '@core/store/news.effect';
+import { reducers } from '@core/store/index';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideClientHydration } from '@angular/platform-browser';
 

@@ -4,7 +4,7 @@ import {
   selectAllArticles,
   selectArticleId,
   selectStateNewsFetching,
-} from '@store/news.selectors';
+} from '@core/store/news.selectors';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { TruncatePipe } from '@news/pipes/truncate.pipe';

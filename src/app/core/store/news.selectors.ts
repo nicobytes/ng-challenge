@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { NewsState, NewsAdapter } from '@store/news.state';
+import { NewsState, NewsAdapter } from '@core/store/news.state';
 
 export const selectNewsState = createFeatureSelector<NewsState>('news');
 

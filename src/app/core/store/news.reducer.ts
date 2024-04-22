@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { NewsState, NewsAdapter } from '@store/news.state';
-import { NewsActions } from '@store/news.actions';
+import { NewsState, NewsAdapter } from '@core/store/news.state';
+import { NewsActions } from '@core/store/news.actions';
 
 export const initialState: NewsState = NewsAdapter.getInitialState({
   selectedArticleId: null,

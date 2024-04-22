@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, switchMap } from 'rxjs/operators';
-import { NewsActions } from '@store/news.actions';
+import { NewsActions } from '@core/store/news.actions';
 import { NewsService } from '@core/services/news.service';
 
 @Injectable()
