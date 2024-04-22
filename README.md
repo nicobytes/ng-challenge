@@ -179,7 +179,7 @@ I use the new `ngSrc` by Angular to do the image processing and render the appro
 
 This element, the img tag, automatically creates the srcset attribute and renders images with different resolutions.
 
-![capture](/images/image.jpg)
+![capture](/images/img.jpg)
 
 ### Code Quality
 
