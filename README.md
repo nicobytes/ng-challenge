@@ -42,13 +42,13 @@ npm run start
 
 ### Dynamic Content Loading
 
-The application automatically fetches and displays the latest blog news sorted by publish date in descending order.
+The application automatically fetches and displays the latest blog news, and I create a simple engine to detect which component to render based on the content.
 
 ![capture](/images/engine.jpg)
 
 ### Error Handling
 
-By default, if the endpoint getting news `/_search` does not respond with a well-formatted response, the service returns an empty array.
+By default, if the endpoint getting news `/_search` does not respond with a well-formatted json, the service returns an empty array.
 
 ```ts
 
@@ -100,6 +100,10 @@ export class NewsEffects {
   });
 }
 ```
+
+And when the app es loading, it displays a skeleton pattern.
+
+![capture](/images/loading.jpg)
 
 ### Default Selection and Navigation
 

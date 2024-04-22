@@ -1,6 +1,6 @@
 <aside [class.shown-on-mobile]="showNewsOnMobile()">
   @switch (status()) {
-    @case ('loading') {
+    @case ('init') {
       <div class="article skeleton">
         <picture class="article__image">
           <div class="skeleton__img"></div>
