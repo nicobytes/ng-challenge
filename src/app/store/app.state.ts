@@ -1,4 +1,4 @@
-import { NewsState } from '@store/states/news.state';
+import { NewsState } from '@store/news.state';
 import { RouterState } from '@ngrx/router-store';
 
 export interface AppState {

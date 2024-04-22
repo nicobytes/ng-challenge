@@ -8,10 +8,9 @@ import { routes } from './app.routes';
 import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { NewsEffects } from '@store/effects/news.effect';
-import { reducers } from '@store/reducers';
+import { NewsEffects } from '@store/news.effect';
+import { reducers } from '@store/index';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { provideRouterStore } from '@ngrx/router-store';
 import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
@@ -32,7 +31,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(reducers),
     provideEffects([NewsEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideRouterStore(),
     provideClientHydration(),
   ],
 };

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { NewsActions } from '@store/actions/news.actions';
+import { NewsActions } from '@store/news.actions';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { AsideComponent } from '@news/components/aside/aside.component';

@@ -3,7 +3,8 @@ import { NgOptimizedImage } from '@angular/common';
 import {
   selectAllArticles,
   selectArticleId,
-} from '@store/selectors/news.selectors';
+  selectStateNewsFetching,
+} from '@store/news.selectors';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '@news/components/header/header.component';
 import { TruncatePipe } from '@news/pipes/truncate.pipe';
@@ -30,6 +31,7 @@ export class AsideComponent {
   public showNewsOnMobile = this.uiService.showNewsOnMobile;
   public articles = this.store.selectSignal(selectAllArticles);
   public selectArticleId = this.store.selectSignal(selectArticleId);
+  public status = this.store.selectSignal(selectStateNewsFetching);
 
   public toggleMobileShow() {
     this.uiService.toggleMobileShow();
